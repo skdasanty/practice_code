@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout Main Branch
-      - uses: action/checkout@v4
+        uses: action/checkout@v4
 
       - name: Echo Status
-      - run: echo "::success workflow executed"
+        run: echo "::success workflow executed"
