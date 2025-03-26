@@ -1,7 +1,6 @@
 #include <hello_world.h>
 
-int main(){
-    std::cout << "Hello World \n";
-    std::cin.get();
-    return 0;
+std::string get_hello_message() {
+    return "Hello, World!";
 }
+
