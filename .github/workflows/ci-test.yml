@@ -5,7 +5,7 @@ build-job:
     stage: build
     tags:
         - linux
-        image: gcc
+    image: gcc
     before_script:
         - apt-get update -y && apt-get install -y cmake
     script:
