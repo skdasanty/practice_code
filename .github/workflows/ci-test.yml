@@ -7,12 +7,16 @@ jobs:
         runs-on: ubuntu-22.04
 
         steps:
-        - name: Checkout Main Branch
-          uses: actions/checkout@v4
 
         - name: Install CMake
           run: sudo apt-get update -y && sudo apt-get install -y cmake
         
+        - name: Checkout Main Branch
+          uses: actions/checkout@v4
+        
+        - name: list files
+          run: ls -la
+          
         - name: Build C++ Code
           run: |
             cd practice_code/cpp_examples
