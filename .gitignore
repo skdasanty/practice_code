@@ -2,6 +2,8 @@ devel/
 logs/
 build/
 bin/
+release/
+install/
 lib/
 data/
 msg_gen/
