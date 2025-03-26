@@ -1,0 +1,20 @@
+stages:
+    - build
+
+build-job:
+    stage: build
+    tags:
+        - linux
+        image: gcc
+    before_script:
+        - apt-get update -y && apt-get install -y cmake
+    script:
+        - cd practice_code/cpp_examples
+        - mkdir build
+        - cd build
+        - cmake ..
+        - cmake --build .
+    artifacts:
+        paths:
+            - practice_code/cpp_examples/build
+            
