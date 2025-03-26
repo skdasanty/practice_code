@@ -1,20 +1,28 @@
-stages:
-    - build
+on:
+    push:
+      branches:
+      -  main
+jobs:
+    build-job:
+        runs-on: ubuntu-22.04
 
-build-job:
-    stage: build
-    tags:
-        - linux
-    image: gcc
-    before_script:
-        - apt-get update -y && apt-get install -y cmake
-    script:
-        - cd practice_code/cpp_examples
-        - mkdir build
-        - cd build
-        - cmake ..
-        - cmake --build .
-    artifacts:
-        paths:
-            - practice_code/cpp_examples/build
+        steps:
+        - name: Checkout Main Branch
+          uses: actions/checkout@v4
+
+        - name: Install CMake
+          run: sudo apt-get update -y && sudo apt-get install -y cmake
+        
+        - name: Build C++ Code
+          run: |
+            cd practice_code/cpp_examples
+            mkdir build
+            cd build
+            cmake ..
+            cmake --build .
+        - name: Check build status
+          if: ${{ failure() }}
+          run: |
+            echo "C++ build failed!"
+            exit 1
             
