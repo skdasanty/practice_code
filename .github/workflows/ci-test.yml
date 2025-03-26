@@ -16,10 +16,10 @@ jobs:
         
         - name: list files
           run: ls -la
-          
+
         - name: Build C++ Code
           run: |
-            cd practice_code/cpp_examples
+            cd cpp_examples
             mkdir build
             cd build
             cmake ..
