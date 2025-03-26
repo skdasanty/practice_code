@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
         
 TEST(HelloTest, HelloWorld) {
-    EXPECT_EQ("Hello, World!", get_hello_message());
+    ASSERT_EQ("Hello, World!", get_hello_message());
 }
 
 int main(int argc, char **argv) {
